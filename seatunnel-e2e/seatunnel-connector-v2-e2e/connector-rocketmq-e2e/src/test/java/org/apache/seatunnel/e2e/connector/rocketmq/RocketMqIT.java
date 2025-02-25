@@ -205,6 +205,22 @@ public class RocketMqIT extends TestSuiteBase implements TestResource {
     }
 
     @TestTemplate
+    public void testSourceRocketMqTextTagToConsole(TestContainer container)
+            throws IOException, InterruptedException {
+        DefaultSeaTunnelRowSerializer serializer =
+                new DefaultSeaTunnelRowSerializer(
+                        "test_topic_text_tag",
+                        "test_tag",
+                        SEATUNNEL_ROW_TYPE,
+                        SchemaFormat.TEXT,
+                        DEFAULT_FIELD_DELIMITER);
+        generateTestData(serializer::serializeRow, "test_topic_text_tag", 0, 100);
+        Container.ExecResult execResult =
+                container.executeJob("/rocketmq-source_text_tag_to_console.conf");
+        Assertions.assertEquals(0, execResult.getExitCode(), execResult.getStderr());
+    }
+
+    @TestTemplate
     public void testSourceRocketMqTextToConsole(TestContainer container)
             throws IOException, InterruptedException {
         DefaultSeaTunnelRowSerializer serializer =
