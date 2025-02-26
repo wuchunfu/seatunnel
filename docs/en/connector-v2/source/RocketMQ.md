@@ -31,7 +31,7 @@ Source connector for Apache RocketMQ.
 |-------------------------------------|---------|----------|----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | topics                              | String  | yes      | -                          | `RocketMQ topic` name. If there are multiple `topics`, use `,` to split, for example: `"tpc1,tpc2"`.                                                                                                               |
 | name.srv.addr                       | String  | yes      | -                          | `RocketMQ` name server cluster address.                                                                                                                                                                            |
-| tags                                | String  | no       | -                          | `RocketMQ` tag name. If there are multiple tags, use , to split, for example: `tag1,tag2`.                                                                                                                         |
+| tags                                | String  | no       | -                          | `RocketMQ tag` name. If there are multiple `tags`, use `,` to split, for example: `"tag1,tag2"`.                                                                                                                   |
 | acl.enabled                         | Boolean | no       | false                      | If true, access control is enabled, and access key and secret key need to be configured.                                                                                                                           |
 | access.key                          | String  | no       |                            |                                                                                                                                                                                                                    |
 | secret.key                          | String  | no       |                            | When ACL_ENABLED is true, secret key cannot be empty.                                                                                                                                                              |
@@ -219,9 +219,9 @@ sink {
 }
 ```
 
-### Specified timestamp Simple:
+### Specified tag Simple:
 
-> This is to specify a time to consume, and I dynamically sense the existence of a new partition every 1000 milliseconds to pull the consumption
+> Here you can specify a tag to consume data. If there are multiple tags, use `,` to separate them, for example: "tag1,tag2"
 
 ```hocon
 env {
