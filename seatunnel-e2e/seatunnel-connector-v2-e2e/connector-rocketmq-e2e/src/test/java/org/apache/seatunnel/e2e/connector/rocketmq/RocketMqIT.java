@@ -210,7 +210,7 @@ public class RocketMqIT extends TestSuiteBase implements TestResource {
         DefaultSeaTunnelRowSerializer serializer =
                 new DefaultSeaTunnelRowSerializer(
                         "test_topic_text_tag",
-                        "test_tag",
+                        "tag_test",
                         SEATUNNEL_ROW_TYPE,
                         SchemaFormat.TEXT,
                         DEFAULT_FIELD_DELIMITER);
