@@ -219,7 +219,7 @@ sink {
 }
 ```
 
-### Specified tag Simple:
+### Specified tag example:
 
 > Here you can specify a tag to consume data. If there are multiple tags, use `,` to separate them, for example: "tag1,tag2"
 
